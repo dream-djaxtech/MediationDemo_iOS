@@ -1,0 +1,11 @@
+framework module SDK_Lib {
+  umbrella header "SDK_Lib.h"
+
+  export *
+  module * { export * }
+}
+
+module SDK_Lib.Swift {
+  header "SDK_Lib-Swift.h"
+  requires objc
+}

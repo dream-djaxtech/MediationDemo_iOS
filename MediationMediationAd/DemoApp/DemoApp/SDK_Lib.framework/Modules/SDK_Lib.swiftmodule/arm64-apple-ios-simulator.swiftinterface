@@ -1,0 +1,174 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SDK_Lib
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AdColony
+import AdSupport
+import ChartboostSDK
+import CommonCrypto
+import CoreLocation
+import CoreTelephony
+import CryptoKit
+import Foundation
+import GoogleInteractiveMediaAds
+import GoogleMobileAds
+import IronSource
+import Network
+import ObjectiveC
+@_exported import SDK_Lib
+import StoreKit
+import Swift
+import SystemConfiguration
+import UIKit
+import UnityAds
+import WebKit
+import _Concurrency
+import _StringProcessing
+import ObjectiveC.runtime
+@_hasMissingDesignatedInitializers public class Reachability {
+  @objc deinit
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var shouldAutorotate: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
+}
+public var apiBaseUrl: Swift.String
+public protocol RewardUpdateDelegate : AnyObject {
+  func passAPIvalues(point: ObjectiveC.NSInteger)
+}
+public protocol WebViewUpdateDelegate : AnyObject {
+  func updateMediationWebView(webV: GoogleMobileAds.GADBannerView)
+  func updateWebView(webV: WebKit.WKWebView)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class AdResponse : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var rewardDelegate: (any SDK_Lib.RewardUpdateDelegate)?
+  @_Concurrency.MainActor(unsafe) weak public var webViewDelegate: (any SDK_Lib.WebViewUpdateDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension SDK_Lib.AdResponse {
+  @_Concurrency.MainActor(unsafe) public func getUserDefaultValue(zones: Swift.String, str: Swift.String)
+}
+extension SDK_Lib.AdResponse : SDK_Lib.RewardUpdateDelegate {
+  @_Concurrency.MainActor(unsafe) public func passAPIvalues(point: ObjectiveC.NSInteger)
+}
+extension SDK_Lib.AdResponse {
+  @_Concurrency.MainActor(unsafe) public func imageAdIntegration(fromStr: Swift.String, view: UIKit.UIView, webV: WebKit.WKWebView)
+  @_Concurrency.MainActor(unsafe) public func interstitialImageAdIntegration()
+  @_Concurrency.MainActor(unsafe) public func interstitialVideoAdIntegration()
+  @_Concurrency.MainActor(unsafe) public func rewardedAdIntegration()
+}
+extension SDK_Lib.AdResponse : WebKit.WKUIDelegate, WebKit.WKNavigationDelegate {
+}
+extension SDK_Lib.AdResponse : SDK_Lib.WebViewUpdateDelegate {
+  @_Concurrency.MainActor(unsafe) public func updateWebView(webV: WebKit.WKWebView)
+  @_Concurrency.MainActor(unsafe) public func updateMediationWebView(webV: GoogleMobileAds.GADBannerView)
+}
+extension SDK_Lib.AdResponse : UnityAds.UnityAdsInitializationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func initializationComplete()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func initializationFailed(_ error: UnityAds.UnityAdsInitializationError, withMessage message: Swift.String)
+}
+extension SDK_Lib.AdResponse : UnityAds.UnityAdsLoadDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsAdLoaded(_ placementId: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsAdFailed(toLoad placementId: Swift.String, withError error: UnityAds.UnityAdsLoadError, withMessage message: Swift.String)
+}
+extension SDK_Lib.AdResponse : UnityAds.UnityAdsShowDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsShowComplete(_ placementId: Swift.String, withFinish state: UnityAds.UnityAdsShowCompletionState)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsShowFailed(_ placementId: Swift.String, withError error: UnityAds.UnityAdsShowError, withMessage message: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsShowStart(_ placementId: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func unityAdsShowClick(_ placementId: Swift.String)
+}
+extension SDK_Lib.AdResponse : UnityAds.UADSBannerViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidLoad(_ bannerView: UnityAds.UADSBannerView!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidClick(_ bannerView: UnityAds.UADSBannerView!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidError(_ bannerView: UnityAds.UADSBannerView!, error: UnityAds.UADSBannerError!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidLeaveApplication(_ bannerView: UnityAds.UADSBannerView!)
+}
+extension SDK_Lib.AdResponse : ChartboostSDK.CHBBannerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didFinishHandlingClick(_ event: ChartboostSDK.CHBClickEvent, error: ChartboostSDK.CHBClickError?)
+}
+extension SDK_Lib.AdResponse : ChartboostSDK.CHBRewardedDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didEarnReward(_ event: ChartboostSDK.CHBRewardEvent)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didDismissAd(_ event: ChartboostSDK.CHBDismissEvent)
+}
+extension SDK_Lib.AdResponse : ChartboostSDK.CHBInterstitialDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didCacheAd(_ event: ChartboostSDK.CHBCacheEvent, error: ChartboostSDK.CHBCacheError?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func willShowAd(_ event: ChartboostSDK.CHBShowEvent)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didShowAd(_ event: ChartboostSDK.CHBShowEvent, error: ChartboostSDK.CHBShowError?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didClickAd(_ event: ChartboostSDK.CHBClickEvent, error: ChartboostSDK.CHBClickError?)
+  @_Concurrency.MainActor(unsafe) public func statusWithError(_ error: Any?) -> Swift.String
+}
+extension SDK_Lib.AdResponse : IronSource.ISImpressionDataDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func impressionDataDidSucceed(_ impressionData: IronSource.ISImpressionData!)
+}
+extension SDK_Lib.AdResponse : IronSource.LevelPlayBannerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didLoad(_ bannerView: IronSource.ISBannerView!, with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didFailToLoadWithError(_ error: (any Swift.Error)!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didClick(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didLeaveApplication(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didPresentScreen(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didDismissScreen(with adInfo: IronSource.ISAdInfo!)
+}
+extension SDK_Lib.AdResponse : IronSource.LevelPlayInterstitialDelegate {
+  @_Concurrency.MainActor(unsafe) public func interstitialDidLoad()
+  @_Concurrency.MainActor(unsafe) public func interstitialDidFailToLoadWithError(_ error: (any Swift.Error)!)
+  @_Concurrency.MainActor(unsafe) public func interstitialDidOpen()
+  @_Concurrency.MainActor(unsafe) public func interstitialDidClose()
+  @_Concurrency.MainActor(unsafe) public func interstitialDidShow()
+  @_Concurrency.MainActor(unsafe) public func interstitialDidFailToShowWithError(_ error: (any Swift.Error)!)
+  @_Concurrency.MainActor(unsafe) public func didClickInterstitial()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didLoad(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didOpen(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didShow(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didFailToShowWithError(_ error: (any Swift.Error)!, andAdInfo adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didClose(with adInfo: IronSource.ISAdInfo!)
+}
+extension SDK_Lib.AdResponse : IronSource.LevelPlayRewardedVideoDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func hasAvailableAd(with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func hasNoAvailableAd()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didReceiveReward(forPlacement placementInfo: IronSource.ISPlacementInfo!, with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didClick(_ placementInfo: IronSource.ISPlacementInfo!, with adInfo: IronSource.ISAdInfo!)
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoHasChangedAvailability(_ available: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func didReceiveReward(forPlacement placementInfo: IronSource.ISPlacementInfo!)
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoDidFailToShowWithError(_ error: (any Swift.Error)!)
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoDidOpen()
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoDidClose()
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoDidStart()
+  @_Concurrency.MainActor(unsafe) public func rewardedVideoDidEnd()
+  @_Concurrency.MainActor(unsafe) public func didClickRewardedVideo(_ placementInfo: IronSource.ISPlacementInfo!)
+}
+extension SDK_Lib.AdResponse : AdColony.AdColonyAdViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewDidShow(_ adView: AdColony.AdColonyAdView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewDidLoad(_ adView: AdColony.AdColonyAdView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewDidFail(toLoad error: AdColony.AdColonyAdRequestError)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewWillOpen(_ adView: AdColony.AdColonyAdView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewDidClose(_ adView: AdColony.AdColonyAdView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewWillLeaveApplication(_ adView: AdColony.AdColonyAdView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyAdViewDidReceiveClick(_ adView: AdColony.AdColonyAdView)
+}
+extension SDK_Lib.AdResponse : AdColony.AdColonyInterstitialDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyInterstitialDidLoad(_ interstitial: AdColony.AdColonyInterstitial)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyInterstitialDidFail(toLoad error: AdColony.AdColonyAdRequestError)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyInterstitialExpired(_ interstitial: AdColony.AdColonyInterstitial)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adColonyInterstitialDidClose(_ interstitial: AdColony.AdColonyInterstitial)
+}
+extension SDK_Lib.AdResponse : GoogleMobileAds.GADBannerViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidReceiveAd(_ bannerView: GoogleMobileAds.GADBannerView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerView(_ bannerView: GoogleMobileAds.GADBannerView, didFailToReceiveAdWithError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidRecordImpression(_ bannerView: GoogleMobileAds.GADBannerView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewWillPresentScreen(_ bannerView: GoogleMobileAds.GADBannerView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewWillDismissScreen(_ bannerView: GoogleMobileAds.GADBannerView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidDismissScreen(_ bannerView: GoogleMobileAds.GADBannerView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func bannerViewDidRecordClick(_ bannerView: GoogleMobileAds.GADBannerView)
+}
+extension SDK_Lib.AdResponse : GoogleMobileAds.GADFullScreenContentDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adWillPresentFullScreenContent(_ ad: any GoogleMobileAds.GADFullScreenPresentingAd)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func ad(_ ad: any GoogleMobileAds.GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func adDidDismissFullScreenContent(_ ad: any GoogleMobileAds.GADFullScreenPresentingAd)
+}
